@@ -1,21 +1,10 @@
 import React, {useState} from 'react';
-
 import axios from "axios";
 import {useFormik} from "formik";
 
-
-interface FormData {
-    email:string
-    name:string
-    message:string
-    remember?:boolean
-
-}
-
-
 const Contact =  React.memo( () =>  {
 
-    const [error,setError] = useState(true)
+    const [error,setError] = useState<boolean>(true)
 
     type FormikErrorType = {
         email?: string
@@ -55,14 +44,11 @@ const Contact =  React.memo( () =>  {
                     message: values.message,
                 },
                 { headers: {'Accept': 'application/json'}})
-
                 .then(response =>  console.log(response))
-                .catch(error => console.log(error))
+                .catch(error => setError(error))
             formik.resetForm()
         },
     })
-
-
 
     return (
         <div id='contact'  className='w-full h-screen  flex justify-center  items-center p-4'>
@@ -71,7 +57,6 @@ const Contact =  React.memo( () =>  {
                     <p className='text-4xl font-bold inline border-b-4  text-[#001b5e]'>Contact</p>
                     <p className='text-gray-600 py-4'>{   'Please don’t hesitate to contact me if you have any questions.'
                          }</p>
-
                 </div>
                 <input className='border-2 rounded-lg p-3 flex border-gray-300 ' type="text" placeholder='Name'
                        {...formik.getFieldProps('name')} />

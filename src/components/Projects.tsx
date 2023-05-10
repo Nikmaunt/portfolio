@@ -4,36 +4,28 @@ import {data} from "./Data";
 
 
 const Projects = () => {
-    // projects file
     const project = data;
-    //setProject(data);
 
     return (
-
-
         <div id='projects' className='max-w-[1040px] m-auto md:pl-20 p-4 py-16  '>
             <div className='max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full'>
                 <div className='pb-8'>
                     <p className='text-4xl font-bold inline border-b-4 text-[#001b5e] '>
                         Projects
                     </p>
-                    <p className='py-6'>Check out some of my recent projects</p>
+                    <p className='py-6'>Check out some of my key projects</p>
                 </div>
-
                 {/* container for projects */}
-                <div className="grid sm:grid-cols-2 gap-12">
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {/* Gird Item */}
                     {project.map((item, index) => (
                         <div
                             key={index}
-                            style={{backgroundImage: `url(${item.image})`}}
+                            style={{backgroundImage: `url(${item.image})`, maxHeight:'100%', maxWidth:'100%' }}
                             className="shadow-lg shadow-[#040c16] group container rounded-md
-              flex justify-center text-center items-center mx-auto content-div  "
+              flex justify-center text-center items-center mx-auto content-div "
                         >
                             <div className="opacity-0 group-hover:opacity-100 ">
-      <span className="text-2xl font bold text-white tracking-wider ">
-        {item.name}
-      </span>
                                 <div className="pt-8 text-center ">
                                     <a href={item.github} target="_blank">
                                         <button
@@ -55,8 +47,6 @@ const Projects = () => {
                             </div>
                         </div>
                     ))}
-
-
                 </div>
             </div>
         </div>

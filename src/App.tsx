@@ -6,15 +6,15 @@ import Contacts from "./components/Contacts";
 
 function App() {
 
-  return (
-    <div >
-     <Sidenav/>
-        <Main/>
-        <Skills/>
-        <Projects/>
-        <Contacts/>
-    </div>
-  )
+    return (
+        <div>
+            <Sidenav/>
+            <Main/>
+            <Skills/>
+            <Projects/>
+            <Contacts/>
+        </div>
+    )
 }
 
 export default App
